@@ -37,6 +37,7 @@ class SignUpFragment : Fragment() {
             val password = binding.etPassword.text.toString().trim()
             authViewModel.createAccount(email, password) { result ->
                 Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
+                parentFragmentManager.popBackStack()
             }
         }
     }
