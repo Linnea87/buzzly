@@ -1,6 +1,5 @@
-package com.example.buzzly.viemodels
+package com.example.buzzly.viewmodels
 
-import android.content.Intent
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.auth
