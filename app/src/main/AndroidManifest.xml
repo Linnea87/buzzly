@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Buzzly">
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name=".ui.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

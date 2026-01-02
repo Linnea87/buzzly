@@ -1,4 +1,4 @@
-package com.example.buzzly.activities
+package com.example.buzzly.ui
 
 import android.os.Bundle
 import android.widget.Toast
