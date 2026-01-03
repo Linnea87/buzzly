@@ -35,9 +35,15 @@ class SignUpFragment : Fragment() {
         binding.btnSignUp.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
-            authViewModel.createAccount(email, password) { result ->
-                Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
-                parentFragmentManager.popBackStack()
+            authViewModel.createAccount(email, password) { task ->
+                if(task.isSuccessful){
+                    Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
+                    parentFragmentManager.popBackStack()
+                }else{
+                    // Firebase returns unsuccessful if authentication fails
+                    // email already in use, network error, weak password etc
+                    Toast.makeText(requireContext(), task.exception?.message ?: "Signup failed", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
