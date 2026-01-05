@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.buzzly.R
 import com.example.buzzly.databinding.FragmentSignInBinding
+import com.example.buzzly.utils.AuthInputValidator
 import com.example.buzzly.viewmodels.AuthViewModel
 
 class SignInFragment : Fragment() {
@@ -37,6 +38,16 @@ class SignInFragment : Fragment() {
         binding.btnSignIn.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
+
+            val error = AuthInputValidator.validateEmailAndPassword(
+                email = email,
+                password = password
+            )
+
+            if (error != null) {
+                Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             authViewModel.signIn(email,password,{
                 Toast.makeText(requireContext(),"Success Log in", Toast.LENGTH_SHORT).show()
