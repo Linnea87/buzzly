@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Buzzly">
         <activity
+            android:name=".ui.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SignInActivity"
             android:exported="true">
             <intent-filter>
