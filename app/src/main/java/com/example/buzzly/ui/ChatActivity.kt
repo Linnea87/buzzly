@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.buzzly.R
 import com.example.buzzly.databinding.ActivityChatBinding
 import com.example.buzzly.viewmodels.ChatViewModel
 import com.google.firebase.Firebase
@@ -29,12 +30,10 @@ class ChatActivity : AppCompatActivity() {
             return
         }
 
-    // default first fragment loading
-//        supportFragmentManager.beginTransaction().apply{
-//            replace(R.id.fragmentContainer, SignInFragment())
-//            addToBackStack(null)
-//            commit()
-//        }
-
+        supportFragmentManager.beginTransaction().apply{
+            replace(R.id.fragmentChatContainer, ProfileFragment())
+            addToBackStack(null)
+            commit()
+        }
     }
 }

@@ -1,24 +1,29 @@
 package com.example.buzzly.viewmodels
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.buzzly.data.ChatRepository
 import com.example.buzzly.data.Message
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.firestore
 
 class ChatViewModel : ViewModel()  {
-    val db = Firebase.firestore
+    private val repository = ChatRepository()
 
-    fun sendMessage(roomId: String, message: Message) {
-        val data = hashMapOf(
-            "text" to message.text,
-            "senderId" to message.senderId,
-            "timestamp" to FieldValue.serverTimestamp()
+    private val _currentChatId = MutableLiveData<String>()
+    val currentChatId: LiveData<String> = _currentChatId
+
+    fun startChatWith(userId: String) {
+        repository.createChatWith(
+            otherUserId = userId,
+            onSuccess = { chatId ->
+                _currentChatId.postValue(chatId)
+            }
         )
+    }
 
-        db.collection("chatRooms")
-            .document(roomId)
-            .collection("messages")
-            .add(data)
+    fun sendMessage(message: Message) {
+        val chatId = _currentChatId.value ?: return
+        repository.sendMessage(chatId, message)
     }
 }
+
