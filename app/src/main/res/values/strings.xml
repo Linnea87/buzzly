@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Buzzly</string>
+
+    <!-- Auth -->
+    <string name="auth_email_hint">Email</string>
+    <string name="auth_password_hint">Password</string>
+    <string name="auth_sign_in">Sign in</string>
+    <string name="auth_sign_up">Sign up</string>
+    <string name="auth_go_to_sign_up">Go to Sign up</string>
+
 </resources>
