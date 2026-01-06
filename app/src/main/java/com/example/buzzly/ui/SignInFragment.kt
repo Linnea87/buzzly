@@ -1,5 +1,6 @@
 package com.example.buzzly.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,8 +52,9 @@ class SignInFragment : Fragment() {
 
             authViewModel.signIn(email,password,{
                 Toast.makeText(requireContext(),"Success Log in", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, SignInActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(requireContext(), ChatActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
             },{
                 Toast.makeText(requireContext(),"Unsuccessful log in", Toast.LENGTH_SHORT).show()
             })
