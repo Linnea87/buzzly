@@ -51,4 +51,24 @@ class ChatRepository {
             .collection("messages")
             .add(data)
     }
+
+    fun listenToMessages(
+        chatId: String,
+        onMessagesChanged: (List<Message>) -> Unit
+    ) {
+        db.collection("chatRooms")
+            .document(chatId)
+            .collection("messages")
+            .orderBy("timestamp")
+            .addSnapshotListener { snapshot, error ->
+
+                if (error != null || snapshot == null) return@addSnapshotListener
+
+                val messages = snapshot.documents.mapNotNull {
+                    it.toObject(Message::class.java)
+                }
+
+                onMessagesChanged(messages)
+            }
+    }
 }
