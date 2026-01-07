@@ -34,14 +34,18 @@ class ChatRoomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
-                Log.d("CHAT_ROOM", "Opened chat with id: $chatId")
                 chatViewModel.observeMessages()
             }
         }
+
         chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
-            Log.d("CHAT_ROOM", "Messages count: ${messages.size}")
+            val text = messages.joinToString("\n") {
+                "${it.senderId.take(5)}: ${it.text}"
+            }
+            binding.tvMessagesPlaceholder.text = text
         }
 
         binding.btnSend.setOnClickListener {

@@ -1,5 +1,6 @@
 package com.example.buzzly.data
 
+import android.util.Log
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -56,18 +57,24 @@ class ChatRepository {
         chatId: String,
         onMessagesChanged: (List<Message>) -> Unit
     ) {
+        Log.d("CHAT_REPO", "Listening to messages for chatId=$chatId")
+
         db.collection("chatRooms")
             .document(chatId)
             .collection("messages")
             .orderBy("timestamp")
             .addSnapshotListener { snapshot, error ->
 
-                if (error != null || snapshot == null) return@addSnapshotListener
-
-                val messages = snapshot.documents.mapNotNull {
-                    it.toObject(Message::class.java)
+                if (error != null) {
+                    Log.e("CHAT_REPO", "Listener error", error)
+                    return@addSnapshotListener
                 }
 
+                val messages = snapshot?.documents?.mapNotNull {
+                    it.toObject(Message::class.java)
+                } ?: emptyList()
+
+                Log.d("CHAT_REPO", "Messages size=${messages.size}")
                 onMessagesChanged(messages)
             }
     }

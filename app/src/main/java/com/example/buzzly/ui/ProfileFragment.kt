@@ -43,7 +43,6 @@ class ProfileFragment : Fragment() {
 
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
-                Log.d("PROFILE", "Chat created with id: $chatId")
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragmentChatContainer, ChatRoomFragment())
                     .addToBackStack(null)
