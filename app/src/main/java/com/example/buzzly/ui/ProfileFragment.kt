@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.example.buzzly.R
 import com.example.buzzly.databinding.FragmentProfileBinding
 import com.example.buzzly.viewmodels.ChatViewModel
 
@@ -35,15 +36,19 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnTestStartChat.setOnClickListener {
+            val otherUserId = "REAL_FIREBASE_UID"
+            chatViewModel.startChatWith(otherUserId)
+        }
+
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
                 Log.d("PROFILE", "Chat created with id: $chatId")
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentChatContainer, ChatRoomFragment())
+                    .addToBackStack(null)
+                    .commit()
             }
-        }
-
-        binding.btnTestStartChat.setOnClickListener {
-            val fakeUserId = "TEST_USER_123"
-            chatViewModel.startChatWith(fakeUserId)
         }
     }
 
@@ -51,5 +56,4 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
