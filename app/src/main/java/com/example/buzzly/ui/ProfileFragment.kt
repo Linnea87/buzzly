@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.buzzly.R
 import com.example.buzzly.databinding.FragmentProfileBinding
 import com.example.buzzly.viewmodels.ChatViewModel
+import com.example.buzzly.viewmodels.ProfileViewModel
+
 
 class ProfileFragment : Fragment() {
 
@@ -17,11 +19,12 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var chatViewModel: ChatViewModel
+    private lateinit var profileViewModel : ProfileViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         chatViewModel = ViewModelProvider(requireActivity())[ChatViewModel::class.java]
-
+        profileViewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -40,6 +43,13 @@ class ProfileFragment : Fragment() {
             val otherUserId = "REAL_FIREBASE_UID"
             chatViewModel.startChatWith(otherUserId)
         }
+        profileViewModel.users.observe(viewLifecycleOwner) { users ->
+            binding.tvUsers.text = users.joinToString("\n") {
+                it.displayName
+            }
+        }
+
+        profileViewModel.loadUsers()
 
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
