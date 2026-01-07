@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.collection.emptyIntSet
 import androidx.lifecycle.ViewModelProvider
+import com.example.buzzly.data.UserRepository
 import com.example.buzzly.databinding.FragmentSignUpBinding
 import com.example.buzzly.utils.AuthInputValidator
 import com.example.buzzly.viewmodels.AuthViewModel
 
 class SignUpFragment : Fragment() {
     private lateinit var authViewModel: AuthViewModel
+    private val userRepository = UserRepository()
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
@@ -49,6 +52,7 @@ class SignUpFragment : Fragment() {
             
             authViewModel.createAccount(email, password) { task ->
                 if(task.isSuccessful){
+                    userRepository.createUserProfile()
                     Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
                     parentFragmentManager.popBackStack()
                 }else{
