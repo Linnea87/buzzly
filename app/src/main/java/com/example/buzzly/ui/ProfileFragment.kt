@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.buzzly.R
 import com.example.buzzly.databinding.FragmentProfileBinding
 import com.example.buzzly.viewmodels.ChatViewModel
@@ -39,23 +40,11 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnTestStartChat.setOnClickListener {
-            val otherUserId = "REAL_FIREBASE_UID"
-            chatViewModel.startChatWith(otherUserId)
-        }
+        binding.rvUsers.layoutManager = LinearLayoutManager(requireContext())
+
         profileViewModel.users.observe(viewLifecycleOwner) { users ->
-
-            // Visa users med index
-            binding.tvUsers.text = users.mapIndexed { index, user ->
-                "${index + 1}. ${user.displayName}"
-            }.joinToString("\n")
-
-            // TEMP: klick på texten → start chat med första usern
-            binding.tvUsers.setOnClickListener {
-                if (users.isNotEmpty()) {
-                    val selectedUser = users[0] // TEMP
-                    chatViewModel.startChatWith(selectedUser.uid)
-                }
+            binding.rvUsers.adapter = UserAdapter(users) { user ->
+                chatViewModel.startChatWith(user.uid)
             }
         }
 
