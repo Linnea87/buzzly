@@ -51,13 +51,6 @@ class SignUpFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            binding.btnGoToSignin.setOnClickListener {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, SignInFragment())
-                    .addToBackStack(null)
-                    .commit()
-            }
-
             authViewModel.createAccount(email, password) { task ->
                 if(task.isSuccessful){
                     userRepository.createUserProfile()
@@ -69,6 +62,13 @@ class SignUpFragment : Fragment() {
                     Toast.makeText(requireContext(), task.exception?.message ?: "Signup failed", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        binding.btnGoToSignIn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, SignInFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
     override fun onDestroyView() {
