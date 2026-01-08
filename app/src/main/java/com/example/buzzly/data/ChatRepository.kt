@@ -1,6 +1,7 @@
 package com.example.buzzly.data
 
 import android.util.Log
+import com.example.buzzly.utils.ChatIdUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -22,8 +23,8 @@ class ChatRepository {
         onFailure: (Exception) -> Unit = {}
     ) {
         val currentUserId = getCurrentUserId()
-        val chatRef = db.collection("chatRooms").document()
-        val chatId = chatRef.id
+        val chatId = ChatIdUtil.uniqueChatId(currentUserId,otherUserId)
+        val chatRef = db.collection("chatRooms").document(chatId)
 
         val chatData = mapOf(
             "participants" to listOf(currentUserId, otherUserId),
