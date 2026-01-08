@@ -66,12 +66,17 @@ class ChatRoomFragment : Fragment() {
         binding.btnSend.setOnClickListener {
             val text = binding.etMessage.text.toString().trim()
             if (text.isNotEmpty()) {
+
+                val currentUser = FirebaseAuth.getInstance().currentUser!!
+
                 chatViewModel.sendMessage(
                     Message(
                         text = text,
-                        senderId = FirebaseAuth.getInstance().currentUser!!.uid
+                        senderId = currentUser.uid,
+                        senderName = currentUser.email?.substringBefore("@") ?: "User"
                     )
                 )
+
                 binding.etMessage.text.clear()
             }
         }
