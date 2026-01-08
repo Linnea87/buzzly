@@ -10,12 +10,21 @@ class ProfileViewModel : ViewModel() {
     private val userRepository = UserRepository()
 
     private val _users = MutableLiveData<List<User>>()
+    private val _currentUser = MutableLiveData<User>()
 
+    val currentUser: LiveData<User> = _currentUser
     val users: LiveData<List<User>> = _users
 
     fun loadUsers() {
         userRepository.getAllUsers { userList ->
             _users.postValue(userList)
+        }
+    }
+
+    fun loadCurrentUser(){
+        userRepository.getCurrentUser { user->
+            user?.let {_currentUser.postValue(it)
+            }
         }
     }
 }

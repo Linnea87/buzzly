@@ -49,6 +49,12 @@ class ProfileFragment : Fragment() {
         }
 
         profileViewModel.loadUsers()
+        profileViewModel.loadCurrentUser()
+
+
+        profileViewModel.currentUser.observe(viewLifecycleOwner) { user ->
+            binding.tvProfileName.text = user.displayName
+        }
 
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
