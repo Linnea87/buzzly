@@ -33,7 +33,6 @@ class MessageAdapter : ListAdapter<Message, MessageAdapter.MessageViewHolder>(
 
         fun bind(message: Message) {
             tvMessage.text = message.text
-            tvTimestamp?.text = message.timestamp?.toDate()?.toString() ?: ""
             tvSenderName?.text = message.senderName
 
             val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
