@@ -36,4 +36,15 @@ class UserRepository {
                 onResult(users)
             }
     }
+
+    fun getCurrentUser(onResult: (User?) -> Unit) {
+        val uid = auth.currentUser?.uid ?: return
+
+        db.collection("users")
+            .document(uid)
+            .get()
+            .addOnSuccessListener { doc ->
+                onResult(doc.toObject(User::class.java))
+            }
+    }
 }
