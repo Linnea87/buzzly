@@ -44,7 +44,7 @@ class ProfileFragment : Fragment() {
 
         profileViewModel.users.observe(viewLifecycleOwner) { users ->
             binding.rvUsers.adapter = UserAdapter(users) { user ->
-                chatViewModel.startChatWith(user.uid)
+                chatViewModel.startChatWith(user.uid, user.displayName)
             }
         }
 

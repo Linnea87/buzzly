@@ -10,9 +10,13 @@ class ChatViewModel : ViewModel()  {
     private val repository = ChatRepository()
 
     private val _currentChatId = MutableLiveData<String>()
+
+    private val _chatUserName = MutableLiveData<String>()
     private val _messages = MutableLiveData<List<Message>>()
 
     val currentChatId: LiveData<String> = _currentChatId
+
+    val chatUserName: LiveData<String> = _chatUserName
     val messages: LiveData<List<Message>> = _messages
 
 
@@ -22,7 +26,8 @@ class ChatViewModel : ViewModel()  {
             _messages.postValue(messageList)
         }
     }
-    fun startChatWith(userId: String) {
+    fun startChatWith(userId: String, userName: String) {
+        _chatUserName.value = userName
         repository.createChatWith(
             otherUserId = userId,
             onSuccess = { chatId ->
@@ -36,6 +41,12 @@ class ChatViewModel : ViewModel()  {
         val chatId = _currentChatId.value ?: return
         repository.sendMessage(chatId, message)
     }
+
+    fun leaveChat() {
+        _currentChatId.value = null
+        _chatUserName.value = null
+    }
+
 
 
 }
