@@ -43,6 +43,10 @@ class ChatRoomFragment : Fragment() {
             }
         }
 
+        chatViewModel.chatUserName.observe(viewLifecycleOwner) { name ->
+            binding.tvChatUserName.text = name
+        }
+
         messageAdapter = MessageAdapter()
 
         binding.rvMessages.apply {
@@ -52,6 +56,11 @@ class ChatRoomFragment : Fragment() {
 
         chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
             messageAdapter.submitList(messages)
+        }
+
+        binding.btnBack.setOnClickListener {
+            chatViewModel.leaveChat()
+            parentFragmentManager.popBackStack()
         }
 
         binding.btnSend.setOnClickListener {
@@ -66,6 +75,7 @@ class ChatRoomFragment : Fragment() {
                 binding.etMessage.text.clear()
             }
         }
+
     }
 
     override fun onDestroyView() {
