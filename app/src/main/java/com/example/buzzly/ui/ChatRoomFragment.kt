@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.buzzly.data.Message
 import com.example.buzzly.databinding.FragmentChatRoomBinding
 import com.example.buzzly.viewmodels.ChatViewModel
@@ -17,6 +18,8 @@ class ChatRoomFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var chatViewModel: ChatViewModel
+
+    private lateinit var messageAdapter: MessageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,18 +37,21 @@ class ChatRoomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
                 chatViewModel.observeMessages()
             }
         }
 
+        messageAdapter = MessageAdapter()
+
+        binding.rvMessages.apply {
+            adapter = messageAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+
         chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
-            val text = messages.joinToString("\n") {
-                "${it.senderId.take(5)}: ${it.text}"
-            }
-            binding.tvMessagesPlaceholder.text = text
+            messageAdapter.submitList(messages)
         }
 
         binding.btnSend.setOnClickListener {

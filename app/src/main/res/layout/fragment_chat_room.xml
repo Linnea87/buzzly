@@ -7,20 +7,14 @@
         android:padding="16dp"
         android:background="@android:color/white">
 
-    <!-- MESSAGES PLACEHOLDER (SENARE RECYCLERVIEW) -->
-    <TextView
-            android:id="@+id/tvMessagesPlaceholder"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="16dp"
-            android:text="Messages will appear here"
-            android:textColor="@android:color/black"
-            android:gravity="top"
-            android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/etMessage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- MESSAGE INPUT -->
     <EditText
