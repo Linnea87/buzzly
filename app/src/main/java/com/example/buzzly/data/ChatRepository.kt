@@ -45,6 +45,7 @@ class ChatRepository {
         val data = hashMapOf(
             "text" to message.text,
             "senderId" to message.senderId,
+            "senderName" to message.senderName,
             "timestamp" to FieldValue.serverTimestamp()
         )
 
