@@ -44,8 +44,18 @@ class ProfileFragment : Fragment() {
             chatViewModel.startChatWith(otherUserId)
         }
         profileViewModel.users.observe(viewLifecycleOwner) { users ->
-            binding.tvUsers.text = users.joinToString("\n") {
-                it.displayName
+
+            // Visa users med index
+            binding.tvUsers.text = users.mapIndexed { index, user ->
+                "${index + 1}. ${user.displayName}"
+            }.joinToString("\n")
+
+            // TEMP: klick på texten → start chat med första usern
+            binding.tvUsers.setOnClickListener {
+                if (users.isNotEmpty()) {
+                    val selectedUser = users[0] // TEMP
+                    chatViewModel.startChatWith(selectedUser.uid)
+                }
             }
         }
 
