@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.collection.emptyIntSet
 import androidx.lifecycle.ViewModelProvider
+import com.example.buzzly.R
 import com.example.buzzly.data.UserRepository
 import com.example.buzzly.databinding.FragmentSignUpBinding
 import com.example.buzzly.utils.AuthInputValidator
@@ -49,7 +50,14 @@ class SignUpFragment : Fragment() {
                 Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            
+
+            binding.btnGoToSignin.setOnClickListener {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, SignInFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+
             authViewModel.createAccount(email, password) { task ->
                 if(task.isSuccessful){
                     userRepository.createUserProfile()
