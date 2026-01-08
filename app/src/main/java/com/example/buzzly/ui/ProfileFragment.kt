@@ -54,7 +54,9 @@ class ProfileFragment : Fragment() {
 
         profileViewModel.currentUser.observe(viewLifecycleOwner) { user ->
             binding.tvProfileName.text = user.displayName
+            binding.tvProfileSubtitle.text = getString(R.string.Username, user.displayName)
         }
+
 
         chatViewModel.currentChatId.observe(viewLifecycleOwner) { chatId ->
             if (chatId != null) {
