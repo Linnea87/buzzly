@@ -4,7 +4,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="6dp">
+        android:paddingVertical="6dp"
+        android:layout_marginBottom="6dp">
 
     <!-- Message bubble -->
     <TextView
@@ -25,7 +26,7 @@
             android:id="@+id/tvTimestamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="13:42"
+            android:text="placeholder"
             android:textSize="11sp"
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="2dp"
@@ -37,12 +38,12 @@
             android:id="@+id/tvSenderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alexander"
+            android:text="placeholder"
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
             android:layout_marginStart="4dp"
             android:layout_marginTop="2dp"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
