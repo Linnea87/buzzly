@@ -7,6 +7,16 @@
         android:padding="20dp"
         android:background="@android:color/white">
 
+
+    <!-- AVATAR PLACEHOLDER -->
+    <View
+            android:id="@+id/viewAvatar"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_avatar_placeholder"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
     <!-- PROFILE HEADER -->
     <TextView
             android:id="@+id/tvProfileName"
@@ -17,7 +27,8 @@
             android:textStyle="bold"
             android:textColor="@color/centerColor"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/viewAvatar"
+            android:layout_marginStart="12dp"/>
 
     <TextView
             android:id="@+id/tvProfileSubtitle"
@@ -28,8 +39,8 @@
             android:textColor="@color/endColor"
             android:alpha="0.7"
             app:layout_constraintTop_toBottomOf="@id/tvProfileName"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/tvProfileName"/>
 
     <TextView
             android:id="@+id/btnSignOut"
