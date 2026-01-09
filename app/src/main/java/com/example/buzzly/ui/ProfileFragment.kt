@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
 
         profileViewModel.currentUser.observe(viewLifecycleOwner) { user ->
             binding.tvProfileName.text = user.displayName
-            binding.tvProfileSubtitle.text = getString(R.string.Username, user.displayName)
+            binding.tvProfileSubtitle.text = getString(R.string.username_format, user.displayName)
         }
 
 

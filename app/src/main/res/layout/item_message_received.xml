@@ -4,45 +4,46 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="6dp"
-        android:layout_marginBottom="6dp">
+        android:paddingVertical="@dimen/space_sm_plus"
+        android:layout_marginBottom="@dimen/space_sm_plus">
 
-    <!-- Message bubble -->
+    <!-- MESSAGE BUBBLE -->
     <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:padding="12dp"
-            android:text="Hello! This is a message"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:layout_marginStart="@dimen/message_indent"
+            android:paddingHorizontal="@dimen/space_lg"
+            android:paddingVertical="@dimen/space_md"
+            android:text="@string/message_preview_received"
+            android:textSize="@dimen/text_base"
+            android:textColor="@color/black"
             android:background="@drawable/bg_message_received"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Timestamp (tight under bubble) -->
+    <!-- TIMESTAMP -->
     <TextView
             android:id="@+id/tvTimestamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="placeholder"
-            android:textSize="11sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="2dp"
+            android:text="@string/chat_time_placeholder"
+            android:textSize="@dimen/text_xs"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/space_xs"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
             app:layout_constraintStart_toStartOf="@id/tvMessage"/>
 
-    <!-- Sender name (slightly left of bubble) -->
+    <!-- SENDER NAME -->
     <TextView
             android:id="@+id/tvSenderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="placeholder"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="2dp"
+            android:text="@string/message_preview_sender"
+            android:textSize="@dimen/text_sm"
+            android:textColor="@color/text_secondary"
+            android:layout_marginStart="@dimen/space_sm"
+            android:layout_marginTop="@dimen/space_xs"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
             app:layout_constraintStart_toStartOf="parent"/>
 

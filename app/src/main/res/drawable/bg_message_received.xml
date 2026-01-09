@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid android:color="#F1F1F1" />
+    <solid android:color="@color/surface_message_received"/>
 
-    <corners android:radius="16dp" />
+    <corners android:radius="@dimen/radius_lg"/>
 
     <padding
-            android:left="12dp"
-            android:top="8dp"
-            android:right="12dp"
-            android:bottom="8dp" />
+            android:left="@dimen/space_lg"
+            android:top="@dimen/space_md"
+            android:right="@dimen/space_lg"
+            android:bottom="@dimen/space_md"/>
 
 </shape>
