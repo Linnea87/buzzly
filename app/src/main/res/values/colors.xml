@@ -1,9 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Brand -->
     <color name="startColor">#EF566A</color>
     <color name="centerColor">#B066A9</color>
     <color name="endColor">#627AF7</color>
+
+    <!-- Surfaces -->
+    <color name="surface_overlay_white_90">#E6FFFFFF</color>
+    <color name="surface_gray">#F2F2F2</color>
+    <color name="surface_message_received">#F1F1F1</color>
+    <color name="surface_input">#FAFAFA</color>
+
+    <!-- Text -->
+    <color name="text_secondary">@android:color/darker_gray</color>
 </resources>

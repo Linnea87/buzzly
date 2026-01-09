@@ -1,21 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Screen -->
-    <dimen name="auth_screen_padding">24dp</dimen>
+    <!-- ===== Spacing ===== -->
+    <dimen name="space_xs">2dp</dimen>
+    <dimen name="space_sm">4dp</dimen>
+    <dimen name="space_sm_plus">6dp</dimen>
+    <dimen name="space_md">8dp</dimen>
+    <dimen name="space_md_plus">10dp</dimen>
+    <dimen name="space_lg">12dp</dimen>
+    <dimen name="space_lg_plus">14dp</dimen>
+    <dimen name="space_xl">16dp</dimen>
+    <dimen name="space_xxl">20dp</dimen>
+    <dimen name="space_huge">24dp</dimen>
 
-    <!-- Logo -->
+    <!-- ===== Auth specific ===== -->
     <dimen name="auth_logo_margin_top">130dp</dimen>
-    <dimen name="auth_logo_margin_bottom">32dp</dimen>
-    <dimen name="auth_logo_text_size">38sp</dimen>
-
-    <!-- Inputs -->
-    <dimen name="auth_input_padding">16dp</dimen>
     <dimen name="auth_input_margin_top_large">28dp</dimen>
     <dimen name="auth_input_margin_top_medium">24dp</dimen>
-
-    <!-- Buttons -->
     <dimen name="auth_button_margin_top">32dp</dimen>
     <dimen name="auth_link_margin_top">16dp</dimen>
+    <dimen name="auth_screen_padding">24dp</dimen>
+
+    <!-- ===== Avatar & icons ===== -->
+    <dimen name="icon_md">24dp</dimen>
+    <dimen name="avatar_sm">36dp</dimen>
+    <dimen name="avatar_md">40dp</dimen>
+    <dimen name="avatar_lg">44dp</dimen>
+
+    <!-- ===== Touch targets ===== -->
+    <dimen name="touch_md">48dp</dimen>
+
+    <!-- ===== Message layout ===== -->
+    <dimen name="message_indent">72dp</dimen>
+
+    <!-- ===== Corner radius ===== -->
+    <dimen name="radius_sm">12dp</dimen>
+    <dimen name="radius_md">14dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">20dp</dimen>
+    <dimen name="radius_xxl">50dp</dimen>
+
+    <!-- ===== Text sizes ===== -->
+    <dimen name="text_xs">11sp</dimen>
+    <dimen name="text_sm">12sp</dimen>
+    <dimen name="text_md">14sp</dimen>
+    <dimen name="text_base">16sp</dimen>
+    <dimen name="text_lg">18sp</dimen>
+    <dimen name="text_xl">22sp</dimen>
+    <dimen name="text_logo">38sp</dimen>
+
+    <!-- ===== Chat header ===== -->
+    <dimen name="chat_header_min_height">64dp</dimen>
 
 </resources>

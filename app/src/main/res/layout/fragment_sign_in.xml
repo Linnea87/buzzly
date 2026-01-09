@@ -7,55 +7,62 @@
         android:background="@drawable/bg_gradient_auth"
         android:padding="@dimen/auth_screen_padding">
 
+    <!-- LOGO -->
     <TextView
             android:id="@+id/tvLogo"
+            style="@style/AuthLogoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AuthLogoText"
             android:text="@string/app_name"
             android:layout_marginTop="@dimen/auth_logo_margin_top"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- EMAIL -->
     <EditText
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/touch_md"
             android:background="@drawable/bg_input"
             android:hint="@string/auth_email_hint"
             android:inputType="textEmailAddress"
-            android:padding="@dimen/auth_input_padding"
+            android:padding="@dimen/space_xl"
+            android:layout_marginTop="@dimen/auth_input_margin_top_large"
             app:layout_constraintTop_toBottomOf="@id/tvLogo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/auth_input_margin_top_large"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- PASSWORD -->
     <EditText
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/touch_md"
             android:background="@drawable/bg_input"
             android:hint="@string/auth_password_hint"
             android:inputType="textPassword"
-            android:padding="@dimen/auth_input_padding"
+            android:padding="@dimen/space_xl"
+            android:layout_marginTop="@dimen/auth_input_margin_top_medium"
             app:layout_constraintTop_toBottomOf="@id/etEmail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/auth_input_margin_top_medium"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- SIGN IN -->
     <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignIn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/auth_sign_in"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/auth_button_margin_top"
             app:layout_constraintTop_toBottomOf="@id/etPassword"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/auth_button_margin_top"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- GO TO SIGN UP -->
     <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGoToSignUp"
             android:layout_width="wrap_content"
@@ -65,10 +72,10 @@
             android:backgroundTint="@android:color/transparent"
             android:elevation="0dp"
             android:stateListAnimator="@null"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/auth_link_margin_top"
             app:layout_constraintTop_toBottomOf="@id/btnSignIn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/auth_link_margin_top"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

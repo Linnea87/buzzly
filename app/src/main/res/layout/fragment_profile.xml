@@ -4,52 +4,53 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
-        android:background="@android:color/white">
-
+        android:padding="@dimen/space_xxl"
+        android:background="@color/white">
 
     <!-- AVATAR PLACEHOLDER -->
     <View
             android:id="@+id/viewAvatar"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="@dimen/avatar_lg"
+            android:layout_height="@dimen/avatar_lg"
             android:background="@drawable/bg_avatar_placeholder"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- PROFILE HEADER -->
+    <!-- PROFILE NAME -->
     <TextView
             android:id="@+id/tvProfileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
-            android:textSize="22sp"
+            android:text="@string/profile_username"
+            android:textSize="@dimen/text_xl"
             android:textStyle="bold"
             android:textColor="@color/centerColor"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/space_lg"
             app:layout_constraintStart_toEndOf="@id/viewAvatar"
-            android:layout_marginStart="12dp"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
+    <!-- PROFILE SUBTITLE -->
     <TextView
             android:id="@+id/tvProfileSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Online"
-            android:textSize="14sp"
+            android:text="@string/profile_online"
+            android:textSize="@dimen/text_md"
             android:textColor="@color/endColor"
             android:alpha="0.7"
+            android:layout_marginTop="@dimen/space_sm"
             app:layout_constraintTop_toBottomOf="@id/tvProfileName"
-            android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@id/tvProfileName"/>
 
+    <!-- SIGN OUT -->
     <TextView
             android:id="@+id/btnSignOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign out"
-            android:textSize="14sp"
-            android:textColor="@color/endColor"
+            android:text="@string/profile_sign_out"
+            android:textSize="@dimen/text_md"
             android:textStyle="bold"
+            android:textColor="@color/endColor"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -58,7 +59,7 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/space_xxl"
             android:background="@color/centerColor"
             android:alpha="0.25"
             app:layout_constraintTop_toBottomOf="@id/tvProfileSubtitle"
@@ -70,24 +71,22 @@
             android:id="@+id/tvPeopleHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="People"
-            android:textSize="18sp"
+            android:text="@string/profile_people"
+            android:textSize="@dimen/text_lg"
             android:textStyle="bold"
             android:textColor="@color/centerColor"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/space_xxl"
             app:layout_constraintTop_toBottomOf="@id/divider"
             app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- USERS PLACEHOLDER (SENARE RECYCLERVIEW) -->
+    <!-- USERS LIST -->
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUsers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:paddingVertical="4dp"
+            android:layout_marginTop="@dimen/space_lg"
+            android:paddingVertical="@dimen/space_sm"
             app:layout_constraintTop_toBottomOf="@id/tvPeopleHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

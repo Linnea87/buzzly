@@ -1,7 +1,9 @@
 <resources>
+
+    <!-- App -->
     <string name="app_name">Buzzly</string>
 
-    <!-- Auth -->
+    <!-- ===== Auth ===== -->
     <string name="auth_email_hint">Email</string>
     <string name="auth_password_hint">Password</string>
     <string name="auth_sign_in">Sign in</string>
@@ -9,7 +11,24 @@
     <string name="auth_go_to_sign_up">Go to Sign up</string>
     <string name="auth_go_to_sign_in">Go to Sign in</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Username">\@%1$s</string>
+    <!-- ===== Profile ===== -->
+    <string name="profile_username">Username</string>
+    <string name="profile_online">Online</string>
+    <string name="profile_people">People</string>
+    <string name="profile_sign_out">Sign out</string>
+
+    <!-- ===== Chat ===== -->
+    <string name="chat_user_placeholder">Name</string>
+    <string name="chat_message_hint">Message</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_time_placeholder">00:00</string>
+
+    <!-- ===== Message placeholders (layout preview only) ===== -->
+    <string name="message_preview_received">Hello! This is a message</string>
+    <string name="message_preview_sent">This is my message</string>
+    <string name="message_preview_sender">placeholder</string>
+
+    <!-- ===== User ===== -->
+    <string name="username_format">@%1$s</string>
 
 </resources>

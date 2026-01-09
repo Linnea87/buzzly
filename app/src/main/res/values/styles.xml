@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <resources>
+
+    <!-- ===== Auth logo ===== -->
     <style name="AuthLogoText">
-        <item name="android:textSize">@dimen/auth_logo_text_size</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_xl</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:alpha">0.85</item>
         <item name="android:fontFamily">@font/noto_serif_display_bold_italic</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
     </style>
+
 </resources>
