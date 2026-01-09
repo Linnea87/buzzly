@@ -17,7 +17,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- BACK BUTTON -->
         <ImageView
                 android:id="@+id/btnBack"
                 android:layout_width="24dp"
@@ -28,7 +27,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <!-- CHAT AVATAR PLACEHOLDER -->
         <View
                 android:id="@+id/chatAvatar"
                 android:layout_width="36dp"
@@ -39,7 +37,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="12dp"/>
 
-        <!-- CHAT USER NAME -->
         <TextView
                 android:id="@+id/tvChatUserName"
                 android:layout_width="wrap_content"
@@ -65,36 +62,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- MESSAGE INPUT CONTAINER -->
+    <!-- MESSAGE INPUT -->
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/messageInputContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_message_input"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- MESSAGE INPUT -->
         <EditText
                 android:id="@+id/etMessage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Type a message"
+                android:hint="Message"
+                android:background="@null"
                 android:padding="12dp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnSend"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <!-- SEND BUTTON -->
-        <Button
+        <ImageButton
                 android:id="@+id/btnSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Send"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@color/centerColor"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_send"
+                android:background="@drawable/bg_send_button"
+                android:contentDescription="Send"
+                app:tint="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
