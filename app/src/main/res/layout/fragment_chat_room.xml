@@ -28,6 +28,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <!-- CHAT AVATAR PLACEHOLDER -->
+        <View
+                android:id="@+id/chatAvatar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_avatar_user_placeholder"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="12dp"/>
+
         <!-- CHAT USER NAME -->
         <TextView
                 android:id="@+id/tvChatUserName"
@@ -37,7 +48,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
-                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintStart_toEndOf="@id/chatAvatar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="12dp"/>
@@ -50,33 +61,42 @@
             android:layout_height="0dp"
             android:padding="8dp"
             app:layout_constraintTop_toBottomOf="@id/chatHeader"
-            app:layout_constraintBottom_toTopOf="@id/etMessage"
+            app:layout_constraintBottom_toTopOf="@id/messageInputContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- MESSAGE INPUT -->
-    <EditText
-            android:id="@+id/etMessage"
+    <!-- MESSAGE INPUT CONTAINER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/messageInputContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Type a message"
-            android:padding="12dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnSend"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- SEND BUTTON -->
-    <Button
-            android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/centerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="8dp"/>
+        <!-- MESSAGE INPUT -->
+        <EditText
+                android:id="@+id/etMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Type a message"
+                android:padding="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSend"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- SEND BUTTON -->
+        <Button
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/centerColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
