@@ -4,9 +4,35 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp">
+        android:paddingVertical="6dp">
 
-    <!-- Sender name -->
+    <!-- Message bubble -->
+    <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:padding="12dp"
+            android:text="Hello! This is a message"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/bg_message_received"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Timestamp (tight under bubble) -->
+    <TextView
+            android:id="@+id/tvTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13:42"
+            android:textSize="11sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage"
+            app:layout_constraintStart_toStartOf="@id/tvMessage"/>
+
+    <!-- Sender name (slightly left of bubble) -->
     <TextView
             android:id="@+id/tvSenderName"
             android:layout_width="wrap_content"
@@ -14,36 +40,9 @@
             android:text="Alexander"
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage"
             app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Message bubble -->
-    <TextView
-            android:id="@+id/tvMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:padding="12dp"
-            android:text="Hello! This is a message"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:background="@drawable/bg_message_received"
-            app:layout_constraintTop_toBottomOf="@id/tvSenderName"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Timestamp -->
-    <TextView
-            android:id="@+id/tvTimestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time placeholder"
-            android:textSize="11sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginBottom="4dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMessage"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
