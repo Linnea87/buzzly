@@ -31,6 +31,17 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="4dp"/>
 
+    <TextView
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign out"
+            android:textSize="14sp"
+            android:textColor="@color/endColor"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     <!-- DIVIDER -->
     <View
             android:id="@+id/divider"
