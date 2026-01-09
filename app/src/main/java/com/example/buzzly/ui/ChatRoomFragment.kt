@@ -56,7 +56,9 @@ class ChatRoomFragment : Fragment() {
 
         chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
             messageAdapter.submitList(messages) {
-                binding.rvMessages.smoothScrollToPosition(messages.size - 1)
+                if (messages.isNotEmpty()) {
+                    binding.rvMessages.smoothScrollToPosition(messages.size - 1)
+                }
             }
         }
 
