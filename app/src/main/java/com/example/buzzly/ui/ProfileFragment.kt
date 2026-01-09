@@ -1,5 +1,6 @@
 package com.example.buzzly.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.example.buzzly.R
 import com.example.buzzly.databinding.FragmentProfileBinding
 import com.example.buzzly.viewmodels.ChatViewModel
 import com.example.buzzly.viewmodels.ProfileViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ProfileFragment : Fragment() {
@@ -21,6 +23,8 @@ class ProfileFragment : Fragment() {
 
     private lateinit var chatViewModel: ChatViewModel
     private lateinit var profileViewModel : ProfileViewModel
+
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +70,21 @@ class ProfileFragment : Fragment() {
                     .commit()
             }
         }
+
+        binding.btnSignOut.setOnClickListener {
+            signOut()
+        }
+    }
+
+    private fun signOut() {
+        auth.signOut()
+
+        val intent = Intent(requireContext(), SignInActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(intent)
+
+        requireActivity().finish()
     }
 
     override fun onDestroyView() {
