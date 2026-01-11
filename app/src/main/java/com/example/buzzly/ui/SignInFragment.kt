@@ -36,6 +36,11 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val prefillEmail = arguments?.getString("prefill_email")
+        if (!prefillEmail.isNullOrBlank()) {
+            binding.etEmail.setText(prefillEmail)
+        }
+
         binding.btnSignIn.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
