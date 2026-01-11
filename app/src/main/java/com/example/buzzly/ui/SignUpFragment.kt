@@ -55,7 +55,15 @@ class SignUpFragment : Fragment() {
                 if(task.isSuccessful){
                     userRepository.createUserProfile()
                     Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
-                    parentFragmentManager.popBackStack()
+                    val signInFragment = SignInFragment()
+
+                    signInFragment.arguments = Bundle().apply {
+                            putString("prefill_email", email)
+                    }
+
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, signInFragment)
+                        .commit()
                 }else{
                     // Firebase returns unsuccessful if authentication fails
                     // email already in use, network error, weak password etc
